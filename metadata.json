@@ -1,0 +1,6 @@
+{
+  "name": "Leave Management System",
+  "description": "Enterprise-grade AI-powered Leave Management System with RBAC dashboards, holiday calendars, interactive analytics, and an intelligent Gemini-powered HR policy assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

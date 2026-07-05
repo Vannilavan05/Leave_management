@@ -1,0 +1,31 @@
+version: '3.8'
+
+# Development override: mounts source for live reload and runs frontend + backend
+services:
+  frontend:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./:/app:delegated
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install --no-audit --prefer-offline && npm run dev"
+
+  backend:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app:delegated
+      - ./data.json:/app/data.json
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: sh -c "pip install --no-cache-dir -r requirements.txt || true && uvicorn server:app --host 0.0.0.0 --port 8000 --reload"
+    depends_on:
+      - frontend
+
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build backend frontend

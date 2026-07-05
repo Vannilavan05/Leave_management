@@ -1,0 +1,913 @@
+{
+  "employees": [
+    {
+      "id": "emp_1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "EMPLOYEE",
+      "departmentId": "dept_eng",
+      "departmentName": "Engineering",
+      "managerId": "emp_2",
+      "managerName": "Jane Smith",
+      "joinDate": "2025-01-15",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "emp_2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "MANAGER",
+      "departmentId": "dept_eng",
+      "departmentName": "Engineering",
+      "managerId": "emp_3",
+      "managerName": "Robert Vance",
+      "joinDate": "2023-06-10",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "emp_3",
+      "name": "Robert Vance",
+      "email": "robert@example.com",
+      "role": "HR",
+      "departmentId": "dept_hr",
+      "departmentName": "Human Resources",
+      "managerId": "admin_1",
+      "managerName": "Super Admin",
+      "joinDate": "2021-03-01",
+      "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "admin_1",
+      "name": "Vannila Chandrasekaran",
+      "email": "vannilavanchandrasekaran@gmail.com",
+      "role": "SUPER_ADMIN",
+      "departmentId": "dept_admin",
+      "departmentName": "Administration",
+      "managerId": null,
+      "managerName": null,
+      "joinDate": "2020-01-01",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "emp_4",
+      "name": "Alice Williams",
+      "email": "alice@example.com",
+      "role": "EMPLOYEE",
+      "departmentId": "dept_eng",
+      "departmentName": "Engineering",
+      "managerId": "emp_2",
+      "managerName": "Jane Smith",
+      "joinDate": "2025-03-20",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "emp_5",
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "role": "EMPLOYEE",
+      "departmentId": "dept_eng",
+      "departmentName": "Engineering",
+      "managerId": "emp_2",
+      "managerName": "Jane Smith",
+      "joinDate": "2024-11-01",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+      "status": "ACTIVE"
+    }
+  ],
+  "departments": [
+    {
+      "id": "dept_eng",
+      "name": "Engineering",
+      "managerId": "emp_2",
+      "description": "Core product development and systems engineering."
+    },
+    {
+      "id": "dept_hr",
+      "name": "Human Resources",
+      "managerId": "emp_3",
+      "description": "HR policy, talent acquisition, and employee success."
+    },
+    {
+      "id": "dept_admin",
+      "name": "Administration",
+      "managerId": "admin_1",
+      "description": "Executive leadership and IT support."
+    }
+  ],
+  "leaveTypes": [
+    {
+      "id": "casual",
+      "name": "Casual Leave",
+      "description": "Used for short personal matters. Max 2 consecutive days.",
+      "defaultQuota": 8,
+      "requiresDocuments": false,
+      "paid": true,
+      "color": "bg-amber-100 text-amber-800 border-amber-200"
+    },
+    {
+      "id": "sick",
+      "name": "Sick Leave",
+      "description": "Used for medical emergencies. Requires document if > 2 days.",
+      "defaultQuota": 10,
+      "requiresDocuments": true,
+      "paid": true,
+      "color": "bg-red-100 text-red-800 border-red-200"
+    },
+    {
+      "id": "annual",
+      "name": "Annual / Earned Leave",
+      "description": "Planned vacations. Requires 1 week advance application.",
+      "defaultQuota": 32,
+      "requiresDocuments": false,
+      "paid": true,
+      "color": "bg-emerald-100 text-emerald-800 border-emerald-200"
+    },
+    {
+      "id": "paternity",
+      "name": "Paternity Leave",
+      "description": "15 days of paid parental leave for new fathers.",
+      "defaultQuota": 15,
+      "requiresDocuments": true,
+      "paid": true,
+      "color": "bg-blue-100 text-blue-800 border-blue-200"
+    },
+    {
+      "id": "maternity",
+      "name": "Maternity Leave",
+      "description": "26 weeks of paid parental leave for female employees.",
+      "defaultQuota": 182,
+      "requiresDocuments": true,
+      "paid": true,
+      "color": "bg-purple-100 text-purple-800 border-purple-200"
+    },
+    {
+      "id": "bereavement",
+      "name": "Bereavement Leave",
+      "description": "Used during loss of immediate family members. Up to 5 days.",
+      "defaultQuota": 5,
+      "requiresDocuments": false,
+      "paid": true,
+      "color": "bg-slate-100 text-slate-800 border-slate-200"
+    },
+    {
+      "id": "comp_off",
+      "name": "Compensatory Off",
+      "description": "Earned by working on weekends or public holidays.",
+      "defaultQuota": 3,
+      "requiresDocuments": false,
+      "paid": true,
+      "color": "bg-sky-100 text-sky-800 border-sky-200"
+    },
+    {
+      "id": "wfh",
+      "name": "Work From Home",
+      "description": "Remote work logging. Does not deduct from leave quotas.",
+      "defaultQuota": 100,
+      "requiresDocuments": false,
+      "paid": true,
+      "color": "bg-indigo-100 text-indigo-800 border-indigo-200"
+    },
+    {
+      "id": "lop",
+      "name": "Loss of Pay (LOP)",
+      "description": "Unpaid leave once all balances are exhausted.",
+      "defaultQuota": 365,
+      "requiresDocuments": false,
+      "paid": false,
+      "color": "bg-orange-100 text-orange-800 border-orange-200"
+    }
+  ],
+  "leaveBalances": [
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "casual",
+      "leaveTypeName": "Casual Leave",
+      "quota": 8,
+      "used": 3,
+      "pending": 0,
+      "remaining": 5
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "sick",
+      "leaveTypeName": "Sick Leave",
+      "quota": 10,
+      "used": 1,
+      "pending": 0,
+      "remaining": 9
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "annual",
+      "leaveTypeName": "Annual / Earned Leave",
+      "quota": 32,
+      "used": 9,
+      "pending": 0,
+      "remaining": 23
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "paternity",
+      "leaveTypeName": "Paternity Leave",
+      "quota": 15,
+      "used": 0,
+      "pending": 0,
+      "remaining": 15
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "bereavement",
+      "leaveTypeName": "Bereavement Leave",
+      "quota": 5,
+      "used": 0,
+      "pending": 0,
+      "remaining": 5
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "comp_off",
+      "leaveTypeName": "Compensatory Off",
+      "quota": 3,
+      "used": 0,
+      "pending": 0,
+      "remaining": 3
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "wfh",
+      "leaveTypeName": "Work From Home",
+      "quota": 100,
+      "used": 4,
+      "pending": 0,
+      "remaining": 96
+    },
+    {
+      "employeeId": "emp_1",
+      "leaveTypeId": "lop",
+      "leaveTypeName": "Loss of Pay (LOP)",
+      "quota": 365,
+      "used": 0,
+      "pending": 0,
+      "remaining": 365
+    },
+    {
+      "employeeId": "emp_4",
+      "leaveTypeId": "casual",
+      "leaveTypeName": "Casual Leave",
+      "quota": 8,
+      "used": 0,
+      "pending": 0,
+      "remaining": 8
+    },
+    {
+      "employeeId": "emp_4",
+      "leaveTypeId": "sick",
+      "leaveTypeName": "Sick Leave",
+      "quota": 10,
+      "used": 1,
+      "pending": 0,
+      "remaining": 9
+    },
+    {
+      "employeeId": "emp_4",
+      "leaveTypeId": "annual",
+      "leaveTypeName": "Annual / Earned Leave",
+      "quota": 32,
+      "used": 0,
+      "pending": 0,
+      "remaining": 32
+    },
+    {
+      "employeeId": "emp_5",
+      "leaveTypeId": "casual",
+      "leaveTypeName": "Casual Leave",
+      "quota": 8,
+      "used": 1,
+      "pending": 0,
+      "remaining": 7
+    },
+    {
+      "employeeId": "emp_5",
+      "leaveTypeId": "sick",
+      "leaveTypeName": "Sick Leave",
+      "quota": 10,
+      "used": 2,
+      "pending": 0,
+      "remaining": 8
+    },
+    {
+      "employeeId": "emp_5",
+      "leaveTypeId": "annual",
+      "leaveTypeName": "Annual / Earned Leave",
+      "quota": 32,
+      "used": 2,
+      "pending": 0,
+      "remaining": 30
+    }
+  ],
+  "leaveRequests": [
+    {
+      "id": "req_1",
+      "employeeId": "emp_1",
+      "employeeName": "John Doe",
+      "departmentName": "Engineering",
+      "leaveTypeId": "annual",
+      "leaveTypeName": "Annual / Earned Leave",
+      "startDate": "2026-07-10",
+      "endDate": "2026-07-13",
+      "duration": 4,
+      "halfDay": false,
+      "reason": "Summer family vacation trip to the national park.",
+      "supportingDocument": null,
+      "status": "APPROVED",
+      "managerComments": "",
+      "hrComments": null,
+      "createdAt": "2026-07-01T10:00:00Z",
+      "history": [
+        {
+          "status": "APPROVED",
+          "updatedBy": "emp_2",
+          "updatedByName": "Jane Smith",
+          "timestamp": "2026-07-05T04:41:51.955680Z",
+          "comments": "Status updated."
+        },
+        {
+          "status": "PENDING",
+          "updatedBy": "emp_1",
+          "updatedByName": "John Doe",
+          "timestamp": "2026-07-01T10:00:00Z",
+          "comments": "Request submitted for team review."
+        }
+      ]
+    },
+    {
+      "id": "req_2",
+      "employeeId": "emp_1",
+      "employeeName": "John Doe",
+      "departmentName": "Engineering",
+      "leaveTypeId": "casual",
+      "leaveTypeName": "Casual Leave",
+      "startDate": "2026-07-07",
+      "endDate": "2026-07-07",
+      "duration": 1,
+      "halfDay": false,
+      "reason": "Home plumbing maintenance and urgent technician visit.",
+      "supportingDocument": null,
+      "status": "APPROVED",
+      "managerComments": "",
+      "hrComments": null,
+      "createdAt": "2026-07-03T09:30:00Z",
+      "history": [
+        {
+          "status": "APPROVED",
+          "updatedBy": "emp_2",
+          "updatedByName": "Jane Smith",
+          "timestamp": "2026-07-05T04:41:59.963690Z",
+          "comments": "Status updated."
+        },
+        {
+          "status": "PENDING",
+          "updatedBy": "emp_1",
+          "updatedByName": "John Doe",
+          "timestamp": "2026-07-03T09:30:00Z",
+          "comments": "Applied for personal matter."
+        }
+      ]
+    },
+    {
+      "id": "req_3",
+      "employeeId": "emp_4",
+      "employeeName": "Alice Williams",
+      "departmentName": "Engineering",
+      "leaveTypeId": "sick",
+      "leaveTypeName": "Sick Leave",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-06",
+      "duration": 1,
+      "halfDay": false,
+      "reason": "Dental wisdom tooth extraction surgery appointment.",
+      "supportingDocument": "medical_cert_alice.pdf",
+      "status": "APPROVED",
+      "managerComments": "",
+      "hrComments": null,
+      "createdAt": "2026-07-03T15:00:00Z",
+      "history": [
+        {
+          "status": "APPROVED",
+          "updatedBy": "emp_2",
+          "updatedByName": "Jane Smith",
+          "timestamp": "2026-07-05T04:42:04.672854Z",
+          "comments": "Status updated."
+        },
+        {
+          "status": "PENDING",
+          "updatedBy": "emp_4",
+          "updatedByName": "Alice Williams",
+          "timestamp": "2026-07-03T15:00:00Z",
+          "comments": "Wisdom tooth surgery recovery."
+        }
+      ]
+    },
+    {
+      "id": "req_4",
+      "employeeId": "emp_5",
+      "employeeName": "Bob Johnson",
+      "departmentName": "Engineering",
+      "leaveTypeId": "annual",
+      "leaveTypeName": "Annual / Earned Leave",
+      "startDate": "2026-06-15",
+      "endDate": "2026-06-17",
+      "duration": 3,
+      "halfDay": false,
+      "reason": "Moving to a new apartment in the city.",
+      "supportingDocument": null,
+      "status": "APPROVED",
+      "managerComments": "Approved. Ensure tasks are delegated before leaving.",
+      "hrComments": "Processed.",
+      "createdAt": "2026-06-05T08:00:00Z",
+      "history": [
+        {
+          "status": "PENDING",
+          "updatedBy": "emp_5",
+          "updatedByName": "Bob Johnson",
+          "timestamp": "2026-06-05T08:00:00Z",
+          "comments": "Request submitted."
+        },
+        {
+          "status": "APPROVED",
+          "updatedBy": "emp_2",
+          "updatedByName": "Jane Smith",
+          "timestamp": "2026-06-06T11:00:00Z",
+          "comments": "Approved. Ensure tasks are delegated."
+        }
+      ]
+    },
+    {
+      "leaveTypeId": "casual",
+      "startDate": "2026-07-06",
+      "endDate": "2026-07-06",
+      "reason": "Personal urgent matter",
+      "halfDay": false,
+      "supportingDocument": null,
+      "employeeId": "emp_1",
+      "id": "req_1783184473920_c0d8",
+      "status": "APPROVED",
+      "createdAt": "2026-07-04T17:01:13.920398Z",
+      "history": [
+        {
+          "status": "APPROVED",
+          "updatedBy": "emp_3",
+          "updatedByName": "Robert Vance",
+          "timestamp": "2026-07-05T04:42:36.056504Z",
+          "comments": "Bulk action applied."
+        },
+        {
+          "status": "PENDING",
+          "updatedBy": "emp_1",
+          "updatedByName": null,
+          "timestamp": "2026-07-04T17:01:13.920430Z",
+          "comments": "Request submitted."
+        }
+      ],
+      "leaveTypeName": "Unknown",
+      "hrComments": ""
+    },
+    {
+      "leaveTypeId": "wfh",
+      "startDate": "2027-02-15",
+      "endDate": "2027-02-15",
+      "reason": "i am sick of this work in the office ",
+      "halfDay": false,
+      "supportingDocument": "certificate_sap_developing_detailed_knowledge.pdf",
+      "employeeId": "emp_1",
+      "id": "req_1783224643810_ca6c",
+      "status": "APPROVED",
+      "createdAt": "2026-07-05T04:10:43.810983Z",
+      "history": [
+        {
+          "status": "APPROVED",
+          "updatedBy": "emp_3",
+          "updatedByName": "Robert Vance",
+          "timestamp": "2026-07-05T04:42:46.813776Z",
+          "comments": "ok"
+        },
+        {
+          "status": "PENDING",
+          "updatedBy": "emp_1",
+          "updatedByName": null,
+          "timestamp": "2026-07-05T04:10:43.810995Z",
+          "comments": "Request submitted."
+        }
+      ],
+      "hrComments": "ok"
+    }
+  ],
+  "holidays": [
+    {
+      "id": "hol_1",
+      "name": "Independence Day",
+      "date": "2026-07-04",
+      "type": "FEDERAL"
+    },
+    {
+      "id": "hol_2",
+      "name": "Labor Day",
+      "date": "2026-09-07",
+      "type": "FEDERAL"
+    },
+    {
+      "id": "hol_3",
+      "name": "Thanksgiving Day",
+      "date": "2026-11-26",
+      "type": "FEDERAL"
+    },
+    {
+      "id": "hol_4",
+      "name": "Christmas Day",
+      "date": "2026-12-25",
+      "type": "FEDERAL"
+    },
+    {
+      "id": "hol_5",
+      "name": "New Year Day",
+      "date": "2026-01-01",
+      "type": "FEDERAL"
+    },
+    {
+      "id": "hol_6",
+      "name": "Optional Birthday Holiday",
+      "date": "2026-07-20",
+      "type": "OPTIONAL"
+    }
+  ],
+  "auditLogs": [
+    {
+      "userId": "emp_3",
+      "userName": "Robert Vance",
+      "userEmail": "robert@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role HR",
+      "id": "log_1783236219921_2bab",
+      "timestamp": "2026-07-05T07:23:39.922715Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783227906148_c22c",
+      "timestamp": "2026-07-05T05:05:06.148861Z"
+    },
+    {
+      "userId": "emp_3",
+      "userName": "Robert Vance",
+      "userEmail": "robert@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role HR",
+      "id": "log_1783226546755_426b",
+      "timestamp": "2026-07-05T04:42:26.755538Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "APPROVED_LEAVE",
+      "details": "Updated leave request req_3 to APPROVED",
+      "id": "log_1783226524683_daf6",
+      "timestamp": "2026-07-05T04:42:04.683619Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "APPROVED_LEAVE",
+      "details": "Updated leave request req_2 to APPROVED",
+      "id": "log_1783226519968_af7b",
+      "timestamp": "2026-07-05T04:41:59.969060Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "APPROVED_LEAVE",
+      "details": "Updated leave request req_1 to APPROVED",
+      "id": "log_1783226511959_a2df",
+      "timestamp": "2026-07-05T04:41:51.959891Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783226502727_8bfe",
+      "timestamp": "2026-07-05T04:41:42.727576Z"
+    },
+    {
+      "userId": "admin_1",
+      "userName": "Vannila Chandrasekaran",
+      "userEmail": "vannilavanchandrasekaran@gmail.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role SUPER_ADMIN",
+      "id": "log_1783225210553_98d3",
+      "timestamp": "2026-07-05T04:20:10.553858Z"
+    },
+    {
+      "userId": "emp_3",
+      "userName": "Robert Vance",
+      "userEmail": "robert@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role HR",
+      "id": "log_1783225172409_ed26",
+      "timestamp": "2026-07-05T04:19:32.409227Z"
+    },
+    {
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role EMPLOYEE",
+      "id": "log_1783225163075_6ca3",
+      "timestamp": "2026-07-05T04:19:23.075949Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783225159292_5bab",
+      "timestamp": "2026-07-05T04:19:19.292833Z"
+    },
+    {
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role EMPLOYEE",
+      "id": "log_1783225156436_1432",
+      "timestamp": "2026-07-05T04:19:16.436277Z"
+    },
+    {
+      "userId": "admin_1",
+      "userName": "Vannila Chandrasekaran",
+      "userEmail": "vannilavanchandrasekaran@gmail.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role SUPER_ADMIN",
+      "id": "log_1783225025526_5349",
+      "timestamp": "2026-07-05T04:17:05.527021Z"
+    },
+    {
+      "userId": "emp_3",
+      "userName": "Robert Vance",
+      "userEmail": "robert@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role HR",
+      "id": "log_1783225015389_5ff1",
+      "timestamp": "2026-07-05T04:16:55.389561Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783224911532_44b6",
+      "timestamp": "2026-07-05T04:15:11.533018Z"
+    },
+    {
+      "userId": "emp_3",
+      "userName": "Robert Vance",
+      "userEmail": "robert@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role HR",
+      "id": "log_1783224663681_7808",
+      "timestamp": "2026-07-05T04:11:03.681658Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783224655252_f658",
+      "timestamp": "2026-07-05T04:10:55.252779Z"
+    },
+    {
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "APPLY_LEAVE",
+      "details": "Applied for None from 2027-02-15 to 2027-02-15",
+      "id": "log_1783224643814_e5f5",
+      "timestamp": "2026-07-05T04:10:43.814451Z"
+    },
+    {
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "APPLY_LEAVE",
+      "details": "Applied for None from 2026-07-06 to 2026-07-06",
+      "id": "log_1783184473949_58b7",
+      "timestamp": "2026-07-04T17:01:13.949129Z"
+    },
+    {
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role EMPLOYEE",
+      "id": "log_1783184289927_55ea",
+      "timestamp": "2026-07-04T16:58:09.927483Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783184252141_f39e",
+      "timestamp": "2026-07-04T16:57:32.141810Z"
+    },
+    {
+      "userId": "admin_1",
+      "userName": "Vannila Chandrasekaran",
+      "userEmail": "vannilavanchandrasekaran@gmail.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role SUPER_ADMIN",
+      "id": "log_1783157612525_kdq3",
+      "timestamp": "2026-07-04T09:33:32.525Z"
+    },
+    {
+      "userId": "emp_2",
+      "userName": "Jane Smith",
+      "userEmail": "jane@example.com",
+      "action": "AUTH_LOGIN",
+      "details": "User logged in successfully with role MANAGER",
+      "id": "log_1783157610212_nkye",
+      "timestamp": "2026-07-04T09:33:30.212Z"
+    },
+    {
+      "id": "log_1",
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "APPLY_LEAVE",
+      "details": "Applied for Annual Leave from 2026-07-10 to 2026-07-13",
+      "timestamp": "2026-07-01T10:00:00Z"
+    },
+    {
+      "id": "log_2",
+      "userId": "emp_1",
+      "userName": "John Doe",
+      "userEmail": "john@example.com",
+      "action": "APPLY_LEAVE",
+      "details": "Applied for Casual Leave on 2026-07-07",
+      "timestamp": "2026-07-03T09:30:00Z"
+    },
+    {
+      "id": "log_3",
+      "userId": "emp_4",
+      "userName": "Alice Williams",
+      "userEmail": "alice@example.com",
+      "action": "APPLY_LEAVE",
+      "details": "Applied for Sick Leave on 2026-07-06 with supporting documents",
+      "timestamp": "2026-07-03T15:00:00Z"
+    }
+  ],
+  "policies": [
+    {
+      "id": "pol_casual",
+      "title": "Casual Leave Policy",
+      "category": "Casual Leave",
+      "content": "Casual leave is provided for unexpected personal emergencies or planning short events. Employees receive 8 days of Casual Leave per calendar year. No more than 2 consecutive days of Casual Leave may be taken. Casual leave cannot be combined with Sick Leave or Annual Leave. At least 24 hours advance notice is required except in extreme emergencies."
+    },
+    {
+      "id": "pol_sick",
+      "title": "Sick & Medical Leave Policy",
+      "category": "Sick Leave",
+      "content": "Sick leave is strictly reserved for medical illnesses, emergencies, surgeries, or doctor appointments. Employees receive 10 days of paid Sick Leave per year. If a Sick Leave spans more than 2 consecutive business days, a valid Medical Certificate (PDF or image) uploaded by a certified practitioner is mandatory for HR verification and approval."
+    },
+    {
+      "id": "pol_annual",
+      "title": "Annual / Earned Vacation Leave Policy",
+      "category": "Annual Leave",
+      "content": "Annual leave is provided for long vacations and recreational activities. Employees accrue Annual Leave at a rate of 2.67 days per completed month of service, totaling 32 days per year. Accrued leave carries over with a maximum cap of 45 days. To ensure smooth department operations, employees must submit Annual Leave requests at least 1 week (7 calendar days) in advance. Approvals are subject to team staffing availability (minimum 50% department presence required)."
+    },
+    {
+      "id": "pol_parental",
+      "title": "Maternity & Paternity Parental Leave",
+      "category": "Parental Leave",
+      "content": "Maternity Leave provides 26 weeks (182 days) of fully paid leave for female employees following birth or legal adoption. Paternity Leave provides 15 calendar days of fully paid leave for male employees. Requests require supporting certificates (birth notification, hospital registry) and must be requested at least 4 weeks in advance."
+    },
+    {
+      "id": "pol_lop",
+      "title": "Loss of Pay (LOP) Policy",
+      "category": "Loss of Pay",
+      "content": "Loss of Pay (unpaid leave) can be applied when all other paid leave balances (Casual, Sick, Annual) are exhausted. Manager and HR approvals are strictly mandatory. LOP days are deducted directly from the monthly payroll cycle."
+    },
+    {
+      "id": "pol_wfh",
+      "title": "Work From Home (WFH) Guidelines",
+      "category": "Remote Work",
+      "content": "Work From Home is an administrative arrangement to support remote work flexibility. WFH does not deduct from any leave balances. Employees must log WFH schedules in advance with manager approval. Core working hours (10 AM to 4 PM local time) must be maintained."
+    }
+  ],
+  "settings": {
+    "aiEnabled": true,
+    "escalationDays": 3,
+    "allowLossOfPay": true,
+    "staffingThresholdPercent": 50
+  },
+  "simulatedEmails": [
+    {
+      "id": "mail_1783226524689_6c76",
+      "toEmail": "alice@example.com",
+      "toName": "Alice Williams",
+      "subject": "[LeaveFlow] APPROVED: Leave Request for Sick Leave",
+      "body": "Dear Alice Williams,\n\nYour leave request for Sick Leave has been APPROVED by Jane Smith.\n\nRequest Summary:\n\u2022 Period: 2026-07-06 to 2026-07-06\n\u2022 Duration: 1 Day(s)\n\u2022 Comments: \"None\"\n\nYour leave balance has been updated in the system. Have a good time off!\n\nRegards,\nLeaveFlow LMS Administration",
+      "status": "SENT",
+      "leaveRequestId": "req_3",
+      "type": "LEAVE_APPROVED",
+      "sentAt": "2026-07-05T04:42:07.212009Z"
+    },
+    {
+      "id": "mail_1783226519973_f5b5",
+      "toEmail": "john@example.com",
+      "toName": "John Doe",
+      "subject": "[LeaveFlow] APPROVED: Leave Request for Casual Leave",
+      "body": "Dear John Doe,\n\nYour leave request for Casual Leave has been APPROVED by Jane Smith.\n\nRequest Summary:\n\u2022 Period: 2026-07-07 to 2026-07-07\n\u2022 Duration: 1 Day(s)\n\u2022 Comments: \"None\"\n\nYour leave balance has been updated in the system. Have a good time off!\n\nRegards,\nLeaveFlow LMS Administration",
+      "status": "SENT",
+      "leaveRequestId": "req_2",
+      "type": "LEAVE_APPROVED",
+      "sentAt": "2026-07-05T04:42:02.498730Z"
+    },
+    {
+      "id": "mail_1783226511966_4789",
+      "toEmail": "john@example.com",
+      "toName": "John Doe",
+      "subject": "[LeaveFlow] APPROVED: Leave Request for Annual / Earned Leave",
+      "body": "Dear John Doe,\n\nYour leave request for Annual / Earned Leave has been APPROVED by Jane Smith.\n\nRequest Summary:\n\u2022 Period: 2026-07-10 to 2026-07-13\n\u2022 Duration: 4 Day(s)\n\u2022 Comments: \"None\"\n\nYour leave balance has been updated in the system. Have a good time off!\n\nRegards,\nLeaveFlow LMS Administration",
+      "status": "SENT",
+      "leaveRequestId": "req_1",
+      "type": "LEAVE_APPROVED",
+      "sentAt": "2026-07-05T04:41:54.486112Z"
+    },
+    {
+      "id": "mail_1783224644145_bc30",
+      "toEmail": "jane@example.com",
+      "toName": "Jane Smith",
+      "subject": "[LeaveFlow] Action Required: New Leave Request from John Doe",
+      "body": "Dear Jane Smith,\n\nA new leave request has been submitted by John Doe in your department (Unknown) and is pending your approval.\n\nRequest Summary:\n\u2022 Leave Type: Unknown\n\u2022 Duration: 0 Day(s)\n\u2022 Period: 2027-02-15 to 2027-02-15\n\u2022 Reason: \"i am sick of this work in the office \"\n\nPlease log in to the LeaveFlow LMS Manager Desk to review, approve, reject, or request further clarification regarding this request.\n\nRegards,\nLeaveFlow Background Automation Job Service\n[Process ID: JOB_643815]",
+      "status": "SENT",
+      "leaveRequestId": "req_1783224643810_ca6c",
+      "type": "LEAVE_SUBMITTED",
+      "sentAt": "2026-07-05T04:10:46.667782Z"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cand_1",
+      "name": "Emily Watson",
+      "email": "emily.watson@example.com",
+      "phone": "+1 (555) 019-2834",
+      "roleApplied": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "experienceYears": 6,
+      "status": "INTERVIEWING",
+      "skills": [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Next.js"
+      ],
+      "registeredAt": "2026-06-15T09:00:00Z",
+      "notes": "Strong visual UI/UX intuition. Excellent communications during initial screening rounds.",
+      "gender": "FEMALE"
+    },
+    {
+      "id": "cand_2",
+      "name": "Marcus Vance",
+      "email": "marcus.vance@example.com",
+      "phone": "+1 (555) 014-9821",
+      "roleApplied": "HR Operations Specialist",
+      "department": "Human Resources",
+      "experienceYears": 4,
+      "status": "OFFER_EXTENDED",
+      "skills": [
+        "Talent Acquisition",
+        "Payroll Specialist",
+        "Employee Relations"
+      ],
+      "registeredAt": "2026-06-20T14:30:00Z",
+      "notes": "Highly recommended by Robert. Detailed knowledge of local labor laws and leave compliance structures.",
+      "gender": "MALE"
+    }
+  ]
+}
