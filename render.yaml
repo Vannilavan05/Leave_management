@@ -5,4 +5,4 @@ services:
     branch: main
     dockerfilePath: Dockerfile
     autoDeploy: true
-    plan: starter
+    plan: free
